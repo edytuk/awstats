@@ -10541,7 +10541,7 @@ sub HTMLMenu{
                         if ($ShowRequestTimesStats) {
                                 print( $frame? "<tr><td class=\"awsm\">" : "" );
                                 print
-"<a href=\"$linkanchor#requesttimes\"$targetpage>$Message[185]</a>";
+"<a href=\"$linkanchor#requesttimes\"$targetpage>$Message[186]</a>";
                                 print ($frame? "</td></tr>\n" : " &nbsp; " );
                         }
 			if ($ShowFileTypesStats && $LevelForFileTypesDetection > 0) {
@@ -11134,7 +11134,7 @@ sub HTMLMainRequestTime{
         if ($periodo) { $request_frequency_average = $number_of_requests / $periodo;}
         else { $request_frequency_average = 0};
         print "$Center<a name=\"requesttimes\">&nbsp;</a><br />\n";
-        my $title = "$Message[185]";
+        my $title = "$Message[186]";
         &tab_head($title, 19, 0, 'requesttimes');
         my $Totals = 0;
         my $average_s = 0;
