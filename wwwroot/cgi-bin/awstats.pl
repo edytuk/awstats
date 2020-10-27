@@ -758,6 +758,7 @@ use vars qw/ @Message /;
 	',',
  	'Downloads',
         'Export CSV',
+        'TB',
         'Frequency[/s]',
         'Number of requests',
         'Period',
@@ -1852,7 +1853,8 @@ sub Read_Config {
 			'png'   => 1,
 			'bmp'   => 1,
 			'ico'   => 1,
-			'swf'   => 1
+			'swf'   => 1,
+			'webp'  => 1
 		);
 	}
 
@@ -8309,7 +8311,7 @@ sub Format_Bytes {
 
 # Do not use exp/log function to calculate 1024power, function make segfault on some unix/perl versions
 	if ( $bytes >= ( $fudge << 40 ) ) {
-		return sprintf( "%.2f", $bytes / 1099511627776 ) . " $Message[179]";
+		return sprintf( "%.2f", $bytes / 1099511627776 ) . " $Message[180]";
 	}
 	if ( $bytes >= ( $fudge << 30 ) ) {
 		return sprintf( "%.2f", $bytes / 1073741824 ) . " $Message[110]";
@@ -10291,7 +10293,7 @@ sub HTMLTopBanner{
 					$HourRequired = $nowhour; 
 				}
 				print "<select class=\"aws_formfield\" name=\"hour\">\n";
-				foreach ( 1 .. 31 ) {
+				foreach ( 0 .. 23 ) {
 					print "<option"
 					  . ( $HourRequired eq "$_" ? " selected=\"selected\"" : "" )
 					  . " value=\"$_\">$_</option>\n";
@@ -18525,7 +18527,7 @@ if ( $UpdateStats && $FrameName ne 'index' && $FrameName ne 'mainleft' )
 	my $regnotie          = qr/webtv|omniweb|opera/i;
 	my $regnotnetscape    = qr/gecko|compatible|opera|galeon|safari|charon/i;
 	my $regnotfirefox     = qr/flock/i;
-	my $regnotsafari      = qr/android|arora|chrome|shiira/i;
+	my $regnotsafari      = qr/android|arora|chrome|shiira|webpositive/i;
 	my $regreferer        = qr/^(\w+):\/\/([^\/:]+)(:\d+|)/;
 	my $regreferernoquery = qr/^([^$URLQuerySeparators]+)/;
 	my $reglocal          = qr/^(www\.|)$sitewithoutwww/i;
